@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 08 Mar 2022 pada 15.00
+-- Generation Time: 16 Mar 2022 pada 14.03
 -- Versi Server: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -67,7 +67,10 @@ CREATE TABLE `transaksi` (
   `idTransaksi` int(11) NOT NULL,
   `checkIn` time NOT NULL,
   `checkOut` time NOT NULL,
-  `tagihan` int(11) NOT NULL
+  `tagihan` int(11) NOT NULL,
+  `idPegawai` int(11) NOT NULL,
+  `idKendaraan` int(11) NOT NULL,
+  `idInfo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -96,7 +99,10 @@ ALTER TABLE `pegawai`
 -- Indexes for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  ADD PRIMARY KEY (`idTransaksi`);
+  ADD PRIMARY KEY (`idTransaksi`),
+  ADD KEY `idPegawai` (`idPegawai`),
+  ADD KEY `idKendaraan` (`idKendaraan`),
+  ADD KEY `idInfo` (`idInfo`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -112,7 +118,7 @@ ALTER TABLE `infoparkir`
 -- AUTO_INCREMENT for table `kendaraan`
 --
 ALTER TABLE `kendaraan`
-  MODIFY `idKendaraan` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idKendaraan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `pegawai`
@@ -125,6 +131,18 @@ ALTER TABLE `pegawai`
 --
 ALTER TABLE `transaksi`
   MODIFY `idTransaksi` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+--
+
+--
+-- Ketidakleluasaan untuk tabel `transaksi`
+--
+ALTER TABLE `transaksi`
+  ADD CONSTRAINT `transaksi_ibfk_1` FOREIGN KEY (`idPegawai`) REFERENCES `pegawai` (`idPegawai`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `transaksi_ibfk_2` FOREIGN KEY (`idKendaraan`) REFERENCES `kendaraan` (`idKendaraan`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `transaksi_ibfk_3` FOREIGN KEY (`idInfo`) REFERENCES `infoparkir` (`idInfo`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
