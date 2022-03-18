@@ -1,5 +1,5 @@
 <?php
-$connect = mysqli_connect("localhost", "root", "", "cpr-parking");
+$connect = mysqli_connect("localhost", "root", "", "cpr-parkir");
 
 // Check connection
 if (mysqli_connect_errno()) {
