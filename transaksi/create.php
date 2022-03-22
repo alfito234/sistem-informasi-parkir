@@ -2,15 +2,13 @@
 
 include '../connect.php';
 
-$idTransaksi = $_POST['idTransaksi'];
 $checkIn = $_POST['checkIn'];
 $idPegawai = $_POST['idPegawai'];
 $idKendaraan = $_POST['idKendaraan'];
-$idInfo = $_POST['idInfo'];
 $nopol = $_POST['nopol'];
 
-$query = "INSERT INTO `transaksi` (`idTransaksi`, `checkIn`, `idPegawai`, `idKendaraan`, `idInfo`, `nopol`) 
-VALUES ('$idTransaksi', '$checkIn', '$idPegawai', '$idKendaraan', '$idInfo', '$nopol');";
+$query = "INSERT INTO `transaksi` (`checkIn`, `idPegawai`, `idKendaraan`, `idInfo`, `nopol`) 
+VALUES ('$checkIn', '$idPegawai', '$idKendaraan', '$nopol');";
 
 $result = mysqli_query($connect, $query);
 

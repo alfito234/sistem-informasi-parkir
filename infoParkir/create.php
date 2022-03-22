@@ -2,9 +2,9 @@
 
 include '../connect.php';
 
-$idKendaraan = $_POST['idInfo'];
-$nopol = $_POST['parkirSlot'];
-$jenis = $_POST['jumlahKendaraan'];
+$idInfo = $_POST['idInfo'];
+$parkirSlot = $_POST['parkirSlot'];
+$jumlahKendaraan = $_POST['jumlahKendaraan'];
 
 $query = "INSERT INTO infoparkir(idInfo, parkirSlot, jumlahKendaraan) 
           VALUES('$idInfo','$parkirSlot','$jumlahKendaraan')";

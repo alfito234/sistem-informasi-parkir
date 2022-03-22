@@ -3,7 +3,7 @@
 include '../connect.php';
 
 $idKendaraan = $_POST['idKendaraan'];
-$nopol = $_POST['nopol'];
+$biaya = $_POST['biaya'];
 $jenis = $_POST['jenis'];
 
 $query = "UPDATE kendaraan SET idKendaraan='$idKendaraan', 

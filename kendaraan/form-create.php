@@ -17,14 +17,8 @@ $result = mysqli_query($connect, $query);
     <form action="create.php" method="post">
     <table>
       <tr>
-          <td><label for="idKendaraan">ID Kendaraan</label></td>
+          <td><label for="jenis">Jenis Kendaraan</label></td>
           <td>:</td>
-          <td><input type="text" name="idKendaraan" id="idKendaraan"></td>
-      </tr>
-      <tr>
-          <td><label for="jenis">Jenis</label></td>
-          <td>:</td>
-          <td>
           <td><input type="text" name="jenis" id="jenis"></td>
           </tr>  
       <tr>

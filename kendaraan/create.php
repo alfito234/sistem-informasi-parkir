@@ -2,12 +2,12 @@
 
 include '../connect.php';
 
-$idKendaraan = $_POST['idKendaraan'];
-$nopol = $_POST['jenis'];
-$jenis = $_POST['biaya'];
 
-$query = "INSERT INTO kendaraan(idKendaraan, jenis, biaya) 
-          VALUES('$idKendaraan','$jenis','$biaya')";
+$jenis = $_POST['jenis'];
+$biaya = $_POST['biaya'];
+
+$query = "INSERT INTO kendaraan(jenis, biaya) 
+          VALUES('$jenis','$biaya')";
 
 $result = mysqli_query($connect, $query);
 
