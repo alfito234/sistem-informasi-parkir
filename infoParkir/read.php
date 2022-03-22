@@ -3,8 +3,8 @@
 include '../connect.php';
 
 $query = "SELECT * 
-          FROM kendaraan 
-          ORDER BY idKendaraan ASC";
+          FROM infoparkir 
+          ORDER BY idInfo ASC";
 
 $result = mysqli_query($connect, $query);
 
@@ -61,21 +61,21 @@ $num = mysqli_num_rows($result);
   <br>
     <table id="tabel">
       <tr>
-        <th>Id Kendaraan</th>
-        <th>Jenis Kendaraan</th>
-        <th>Biaya per jam</th>
+        <th>Id Info</th>
+        <th>Parkir Slot</th>
+        <th>Jumlah Kendaraan</th>
       </tr>
       <?php
       if ($num > 0)
       {
            while ($data = mysqli_fetch_assoc($result)) { ?>
            <tr>
-            <td> <?php echo $data['idKendaraan'] ?> </td>
-            <td> <?php echo $data['jenis'] ?> </td>
-            <td> <?php echo $data['biaya'] ?> </td>
+            <td> <?php echo $data['idInfo'] ?> </td>
+            <td> <?php echo $data['parkirSlot'] ?> </td>
+            <td> <?php echo $data['jumlahKendaraan'] ?> </td>
             <td>
-            <a href="form-update.php?idKendaraan=<?php echo $data['idKendaraan']; ?>">Edit </a> |
-            <a href="delete.php?idKendaraan=<?php echo $data['idKendaraan']; ?>" onclick="return confirm('Anda yakin ingin menghapus data?')"> Hapus </a>
+            <a href="form-update.php?idInfo=<?php echo $data['idInfo']; ?>">Edit </a> |
+            <a href="delete.php?idInfo=<?php echo $data['idInfo']; ?>" onclick="return confirm('Anda yakin ingin menghapus data?')"> Hapus </a>
           </td>
         </tr>
             <?php

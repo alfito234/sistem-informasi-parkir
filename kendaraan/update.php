@@ -7,8 +7,8 @@ $nopol = $_POST['nopol'];
 $jenis = $_POST['jenis'];
 
 $query = "UPDATE kendaraan SET idKendaraan='$idKendaraan', 
-                 nopol='$nopol', 
-                 jenis='$jenis'
+                 jenis='$jenis', 
+                 biaya='$biaya'
 where idKendaraan='$idKendaraan'";
 
 $result = mysqli_query($connect, $query);

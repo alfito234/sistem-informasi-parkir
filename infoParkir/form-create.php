@@ -2,7 +2,7 @@
 
 include '../connect.php';
 
-$query = "SELECT * FROM kendaraan";
+$query = "SELECT * FROM infoparkir";
 $result = mysqli_query($connect, $query);
 
 ?>
@@ -17,22 +17,20 @@ $result = mysqli_query($connect, $query);
     <form action="create.php" method="post">
     <table>
       <tr>
-          <td><label for="idKendaraan">ID Kendaraan</label></td>
+          <td><label for="idInfo">ID Info</label></td>
           <td>:</td>
-          <td><input type="text" name="idKendaraan" id="idKendaraan"></td>
+          <td><input type="text" name="idInfo" id="idInfo"></td>
       </tr>
       <tr>
-          <td><label for="jenis">Jenis</label></td>
+          <td><label for="parkirSlot">Slot Parkir</label></td>
           <td>:</td>
-          <td>
-          <td><input type="text" name="jenis" id="jenis"></td>
-          </tr>  
+          <td><input type="text" name="parkirSlot" id="parkirSlot"></td>
+      </tr>
       <tr>
-          <td><label for="biaya">Biaya per Jam</label></td>
+          <td><label for="jumlahKendaraan">Jumlah Kendaraan</label></td>
           <td>:</td>
-          <td><input type="text" name="biaya" id="biaya"></td>
-      </tr>  
-      </tr>  
+          <td><input type="text" name="jumlahKendaraan" id="jumlahKendaraan"></td>
+      </tr>   
         <tr>
           <td></td>
           <td><button class=" btn btn-primary" type="submit">Simpan</button></td>

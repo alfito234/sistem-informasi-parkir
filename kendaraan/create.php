@@ -3,11 +3,11 @@
 include '../connect.php';
 
 $idKendaraan = $_POST['idKendaraan'];
-$nopol = $_POST['nopol'];
-$jenis = $_POST['jenis'];
+$nopol = $_POST['jenis'];
+$jenis = $_POST['biaya'];
 
-$query = "INSERT INTO kendaraan(idKendaraan, nopol, jenis) 
-          VALUES('$idKendaraan','$nopol','$jenis')";
+$query = "INSERT INTO kendaraan(idKendaraan, jenis, biaya) 
+          VALUES('$idKendaraan','$jenis','$biaya')";
 
 $result = mysqli_query($connect, $query);
 

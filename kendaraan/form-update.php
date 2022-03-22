@@ -26,21 +26,14 @@ $row = mysqli_fetch_assoc($result);
           <td><input type="hidden" name="idKendaraan" id="idKendaraan" value="<?php echo $row['idKendaraan']; ?>"></td>
       </tr>  
       <tr>
-          <td><label for="nopol">Plat Nomor</label></td>
-          <td>:</td>
-          <td><input type="text" name="nopol" id="nopol" value="<?php echo $row['nopol']; ?>"></td>
-      </tr>  
-      <tr>
           <td><label for="jenis">Jenis</label></td>
           <td>:</td>
-          <td>
-            <input type="radio" id="jenis" name="jenis" value="Sepeda Motor">
-            <label for="jenis">Sepeda Motor</label><br>
-            <input type="radio" id="jenis" name="jenis" value="Mobil">
-            <label for="jenis">Mobil</label><br>
-            <input type="radio" id="jenis" name="jenis" value="Bis">
-            <label for="jenis">Bis</label>
-          </tr>  
+          <td><input type="text" name="jenis" id="jenis" value="<?php echo $row['jenis']; ?>"></td>
+      </tr>
+      <tr>
+          <td><label for="biaya">Biaya per Jam</label></td>
+          <td>:</td>
+          <td><input type="text" name="biaya" id="biaya" value="<?php echo $row['biaya']; ?>"></td>
       </tr>
         <tr>
           <td></td>

@@ -57,7 +57,7 @@ $num = mysqli_num_rows($result);
     </style>
   </head>
   <body>
-  <a href="../perpustakaan/read.php">Home</a>
+  <a href="../index.php">Home</a>
   <br>
     <table id="tabel">
       <tr>

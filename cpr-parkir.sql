@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 16 Mar 2022 pada 14.03
+-- Generation Time: 22 Mar 2022 pada 07.52
 -- Versi Server: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `cpr-parking`
+-- Database: `cpr-parkir`
 --
 
 -- --------------------------------------------------------
@@ -34,6 +34,13 @@ CREATE TABLE `infoparkir` (
   `jumlahKendaraan` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `infoparkir`
+--
+
+INSERT INTO `infoparkir` (`idInfo`, `parkirSlot`, `jumlahKendaraan`) VALUES
+(1, 200, 0);
+
 -- --------------------------------------------------------
 
 --
@@ -42,9 +49,16 @@ CREATE TABLE `infoparkir` (
 
 CREATE TABLE `kendaraan` (
   `idKendaraan` int(11) NOT NULL,
-  `nopol` varchar(20) NOT NULL,
-  `jenis` varchar(15) NOT NULL
+  `jenis` varchar(15) NOT NULL,
+  `biaya` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `kendaraan`
+--
+
+INSERT INTO `kendaraan` (`idKendaraan`, `jenis`, `biaya`) VALUES
+(1, 'Sepeda Motor', 4000);
 
 -- --------------------------------------------------------
 
@@ -56,6 +70,13 @@ CREATE TABLE `pegawai` (
   `idPegawai` int(11) NOT NULL,
   `nama` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `pegawai`
+--
+
+INSERT INTO `pegawai` (`idPegawai`, `nama`) VALUES
+(1, 'Abdul');
 
 -- --------------------------------------------------------
 
@@ -70,8 +91,16 @@ CREATE TABLE `transaksi` (
   `tagihan` int(11) NOT NULL,
   `idPegawai` int(11) NOT NULL,
   `idKendaraan` int(11) NOT NULL,
-  `idInfo` int(11) NOT NULL
+  `idInfo` int(11) NOT NULL,
+  `nopol` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `transaksi`
+--
+
+INSERT INTO `transaksi` (`idTransaksi`, `checkIn`, `checkOut`, `tagihan`, `idPegawai`, `idKendaraan`, `idInfo`, `nopol`) VALUES
+(1, '10:00:00', '12:00:00', 8000, 1, 1, 1, 'L1234NM');
 
 --
 -- Indexes for dumped tables
@@ -112,25 +141,25 @@ ALTER TABLE `transaksi`
 -- AUTO_INCREMENT for table `infoparkir`
 --
 ALTER TABLE `infoparkir`
-  MODIFY `idInfo` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idInfo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `kendaraan`
 --
 ALTER TABLE `kendaraan`
-  MODIFY `idKendaraan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idKendaraan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `pegawai`
 --
 ALTER TABLE `pegawai`
-  MODIFY `idPegawai` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idPegawai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `idTransaksi` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idTransaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
