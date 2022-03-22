@@ -6,8 +6,14 @@ $idTransaksi = $_GET['idTransaksi'];
 
 
 $query = "SELECT * FROM transaksi WHERE idTransaksi='$idTransaksi'";
+$queryPgw ="SELECT * FROM pegawai";
+$queryKdr ="SELECT * FROM kendaraan";
+$queryInf ="SELECT * FROM infoparkir";
 
 $result = mysqli_query($connect, $query);
+$result1 = mysqli_query($connect, $queryPgw);
+$result2 = mysqli_query($connect, $queryKdr);
+$result3 = mysqli_query($connect, $queryInf);
 
 $row = mysqli_fetch_assoc($result);
 
@@ -41,19 +47,46 @@ $row = mysqli_fetch_assoc($result);
           <td><input type="text" name="tagihan" id="tagihan" value="<?php echo $row['tagihan']; ?>"></td>
         </tr>
         <tr>
-          <td><label for="idPegawai">Id Pegawai</label></td>
+          <td>Pegawai</td>
           <td>:</td>
-          <td><input type="text" name="idPegawai" id="idPegawai" value="<?php echo $row['idPegawai']; ?>"></td>
+          <td>
+          <select class="form-select" name="idPegawai">
+            <option selected><?php echo $row['idPegawai'] ?></option>
+            <?php
+              while($data_pgw=mysqli_fetch_array($result1)) {?>
+              <?php
+                echo '<option value="'.$data_pgw['idPegawai'].'">'.$data_pgw['nama'].'</option>';
+              } ?>
+          </select>
+          </td>
         </tr>
         <tr>
-          <td><label for="idKendaraan">Id Kendaraan</label></td>
+          <td>Jenis Kendaraan</td>
           <td>:</td>
-          <td><input type="text" name="idKendaraan" id="idKendaraan" value="<?php echo $row['idKendaraan']; ?>"></td>
+          <td>
+          <select class="form-select" name="idKendaraan">
+            <option selected><?php echo $row['idKendaraan'] ?></option>
+            <?php
+              while($data_kdr=mysqli_fetch_array($result2)) {?>
+              <?php
+                echo '<option value="'.$data_kdr['idKendaraan'].'">'.$data_kdr['jenis'].'</option>';
+              } ?>
+          </select>
+          </td>
         </tr>
         <tr>
-          <td><label for="idInfo">Id Info</label></td>
+          <td>Info Parkir Slot</td>
           <td>:</td>
-          <td><input type="text" name="idInfo" id="idInfo" value="<?php echo $row['idInfo']; ?>"></td>
+          <td>
+          <select class="form-select" name="idInfo">
+            <option selected><?php echo $row['idInfo'] ?></option>
+            <?php
+              while($data_inf=mysqli_fetch_array($result3)) {?>
+              <?php
+                echo '<option value="'.$data_inf['idInfo'].'">'.$data_inf['parkirSlot'].'</option>';
+              } ?>
+          </select>
+          </td>
         </tr>
         <tr>
           <td><label for="nopol">Plat Nomor</label></td>

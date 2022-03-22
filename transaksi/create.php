@@ -6,9 +6,10 @@ $checkIn = $_POST['checkIn'];
 $idPegawai = $_POST['idPegawai'];
 $idKendaraan = $_POST['idKendaraan'];
 $nopol = $_POST['nopol'];
+$idInfo = $_POST['idInfo'];
 
 $query = "INSERT INTO `transaksi` (`checkIn`, `idPegawai`, `idKendaraan`, `idInfo`, `nopol`) 
-VALUES ('$checkIn', '$idPegawai', '$idKendaraan', '$nopol');";
+VALUES ('$checkIn', '$idPegawai', '$idKendaraan','$idInfo', '$nopol');";
 
 $result = mysqli_query($connect, $query);
 

@@ -4,7 +4,13 @@ include '../connect.php';
 
 $query = "SELECT checkIn, idPegawai, idKendaraan, nopol
           FROM transaksi";
+$queryPgw ="SELECT * FROM pegawai";
+$queryKdr ="SELECT * FROM kendaraan";
+$queryInf ="SELECT * FROM infoparkir";
 $result = mysqli_query($connect, $query);
+$result1 = mysqli_query($connect, $queryPgw);
+$result2 = mysqli_query($connect, $queryKdr);
+$result3 = mysqli_query($connect, $queryInf);
 
 ?>
 
@@ -28,14 +34,46 @@ $result = mysqli_query($connect, $query);
         <td><input type="text" name="nopol" id="nopolv"></td>
       </tr>
       <tr>
-        <td><label for="idPegawai">Id Pegawai</label></td>
+        <td>Pegawai</td>
         <td>:</td>
-        <td><input type="text" name="idPegawai" id="idPegawai"></td>
+        <td>
+        <select class="form-select" name="idPegawai">
+          <option selected>Pilih Pegawai</option>
+          <?php
+            while($data_pgw=mysqli_fetch_array($result1)) {?>
+            <?php
+              echo '<option value="'.$data_pgw['idPegawai'].'">'.$data_pgw['nama'].'</option>';
+            } ?>
+        </select>
+        </td>
       </tr>
       <tr>
-        <td><label for="idKendaraan">Id Kendaraan</label></td>
+        <td>Jenis Kendaraan</td>
         <td>:</td>
-        <td><input type="text" name="idKendaraan" id="idKendaraan"></td>
+        <td>
+        <select class="form-select" name="idKendaraan">
+          <option selected>Pilih Kendaraan</option>
+          <?php
+            while($data_kdr=mysqli_fetch_array($result2)) {?>
+            <?php
+              echo '<option value="'.$data_kdr['idKendaraan'].'">'.$data_kdr['jenis'].'</option>';
+            } ?>
+        </select>
+        </td>
+      </tr>
+      <tr>
+        <td>Info Parkir Slot</td>
+        <td>:</td>
+        <td>
+        <select class="form-select" name="idInfo">
+          <option selected>Pilih Parkir Slot</option>
+          <?php
+            while($data_inf=mysqli_fetch_array($result3)) {?>
+            <?php
+              echo '<option value="'.$data_inf['idInfo'].'">'.$data_inf['parkirSlot'].'</option>';
+            } ?>
+        </select>
+        </td>
       </tr>
       <tr>
         <td></td>
