@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 22 Mar 2022 pada 07.52
--- Versi Server: 10.1.28-MariaDB
--- PHP Version: 7.1.11
+-- Waktu pembuatan: 22 Mar 2022 pada 09.55
+-- Versi server: 10.4.22-MariaDB
+-- Versi PHP: 7.4.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -39,7 +38,8 @@ CREATE TABLE `infoparkir` (
 --
 
 INSERT INTO `infoparkir` (`idInfo`, `parkirSlot`, `jumlahKendaraan`) VALUES
-(1, 200, 0);
+(1, 200, 0),
+(2, 300, 0);
 
 -- --------------------------------------------------------
 
@@ -58,7 +58,8 @@ CREATE TABLE `kendaraan` (
 --
 
 INSERT INTO `kendaraan` (`idKendaraan`, `jenis`, `biaya`) VALUES
-(1, 'Sepeda Motor', 4000);
+(1, 'Sepeda Motor', 2000),
+(2, 'Mobil', 5000);
 
 -- --------------------------------------------------------
 
@@ -100,32 +101,33 @@ CREATE TABLE `transaksi` (
 --
 
 INSERT INTO `transaksi` (`idTransaksi`, `checkIn`, `checkOut`, `tagihan`, `idPegawai`, `idKendaraan`, `idInfo`, `nopol`) VALUES
-(1, '10:00:00', '12:00:00', 8000, 1, 1, 1, 'L1234NM');
+(1, '10:00:00', '12:00:00', 8000, 1, 1, 1, 'L1234NM'),
+(4, '14:55:00', '02:00:00', 0, 1, 2, 1, 'PZYXV32');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `infoparkir`
+-- Indeks untuk tabel `infoparkir`
 --
 ALTER TABLE `infoparkir`
   ADD PRIMARY KEY (`idInfo`);
 
 --
--- Indexes for table `kendaraan`
+-- Indeks untuk tabel `kendaraan`
 --
 ALTER TABLE `kendaraan`
   ADD PRIMARY KEY (`idKendaraan`);
 
 --
--- Indexes for table `pegawai`
+-- Indeks untuk tabel `pegawai`
 --
 ALTER TABLE `pegawai`
   ADD PRIMARY KEY (`idPegawai`);
 
 --
--- Indexes for table `transaksi`
+-- Indeks untuk tabel `transaksi`
 --
 ALTER TABLE `transaksi`
   ADD PRIMARY KEY (`idTransaksi`),
@@ -134,32 +136,32 @@ ALTER TABLE `transaksi`
   ADD KEY `idInfo` (`idInfo`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `infoparkir`
+-- AUTO_INCREMENT untuk tabel `infoparkir`
 --
 ALTER TABLE `infoparkir`
-  MODIFY `idInfo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idInfo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `kendaraan`
+-- AUTO_INCREMENT untuk tabel `kendaraan`
 --
 ALTER TABLE `kendaraan`
-  MODIFY `idKendaraan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idKendaraan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `pegawai`
+-- AUTO_INCREMENT untuk tabel `pegawai`
 --
 ALTER TABLE `pegawai`
   MODIFY `idPegawai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `transaksi`
+-- AUTO_INCREMENT untuk tabel `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `idTransaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idTransaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
