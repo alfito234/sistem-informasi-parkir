@@ -8,10 +8,10 @@ $idKendaraan = $_POST['idKendaraan'];
 $nopol = $_POST['nopol'];
 $idInfo = $_POST['idInfo'];
 
-$query = "INSERT INTO `transaksi` (`checkIn`, `idPegawai`, `idKendaraan`, `idInfo`, `nopol`) 
+$query1 = "INSERT INTO `transaksi` (`checkIn`, `idPegawai`, `idKendaraan`, `idInfo`, `nopol`) 
 VALUES ('$checkIn', '$idPegawai', '$idKendaraan','$idInfo', '$nopol');";
 
-$result = mysqli_query($connect, $query);
+$result = mysqli_query($connect, $query1);
 
 $num = mysqli_affected_rows($connect);
 

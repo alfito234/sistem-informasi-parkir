@@ -2,12 +2,12 @@
 
 include '../connect.php';
 
-$query = "SELECT checkIn, idPegawai, idKendaraan, nopol
+$query1 = "SELECT checkIn, idPegawai, idKendaraan, nopol
           FROM transaksi";
 $queryPgw ="SELECT * FROM pegawai";
 $queryKdr ="SELECT * FROM kendaraan";
 $queryInf ="SELECT * FROM infoparkir";
-$result = mysqli_query($connect, $query);
+$result = mysqli_query($connect, $query1);
 $result1 = mysqli_query($connect, $queryPgw);
 $result2 = mysqli_query($connect, $queryKdr);
 $result3 = mysqli_query($connect, $queryInf);
